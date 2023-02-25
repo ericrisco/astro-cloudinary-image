@@ -1,21 +1,23 @@
 {
 	"name": "astro-cloudinary-image",
-	"version": "0.0.1",
+	"version": "0.0.4",
 	"description": "Adds a Cloudinary image component to Astro",
 	"homepage": "https://github.com/ericrisco/astro-cloudinary-image#readme",
 	"bugs": {
 		"url": "https://github.com/ericrisco/astro-cloudinary-image/issues"
 	},
+	"type": "module",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ericrisco/astro-cloudinary-image"
 	},
+	"exports": {
+	  ".": "./index.ts"
+	},
 	"files": [
-		"index.ts",
-		"src/index.ts",
-		"src/Cloudinary.astro"
+	  "src",
+	  "index.ts"
 	],
-	"exports": "./index.ts",
 	"keywords": [
 		"astro-component",
 		"cloudinary",
