@@ -1,0 +1,44 @@
+{
+	"name": "astro-cloudinary-image",
+	"version": "0.0.1",
+	"description": "Adds a Cloudinary image component to Astro",
+	"homepage": "https://github.com/ericrisco/astro-cloudinary-image#readme",
+	"bugs": {
+		"url": "https://github.com/ericrisco/astro-cloudinary-image/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ericrisco/astro-cloudinary-image"
+	},
+	"files": [
+		"index.ts",
+		"src/index.ts",
+		"src/Cloudinary.astro"
+	],
+	"exports": "./index.ts",
+	"keywords": [
+		"astro-component",
+		"cloudinary",
+		"image"
+	],
+	"author": "Eric Risco de la Torre",
+	"license": "MIT",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"start": "astro preview",
+		"format": "prettier -w ./src",
+		"check:format": "prettier -c ./src",
+		"release": "standard-version",
+		"check": "astro check"
+	},
+	"devDependencies": {
+		"astro": "^2.0.14",
+		"prettier": "^2.8.4",
+		"prettier-plugin-astro": "^0.8.0",
+		"standard-version": "^9.5.0"
+	},
+	"dependencies": {
+		"@cloudinary/url-gen": "^1.9.1"
+	}
+}

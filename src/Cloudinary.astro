@@ -1,0 +1,167 @@
+---
+import { Cloudinary } from '@cloudinary/url-gen';
+import { imaggaScale, imaggaCrop, crop, fill, scale, minimumPad, fit, pad, limitFit, thumbnail, limitFill, minimumFit, limitPad, fillPad } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity, focusOn } from "@cloudinary/url-gen/qualifiers/gravity";
+import { FocusOn } from "@cloudinary/url-gen/qualifiers/focusOn";
+import { ResizeFillAction } from "@cloudinary/url-gen/actions/resize/ResizeFillAction";
+import { byRadius, max } from "@cloudinary/url-gen/actions/roundCorners";
+import { byAngle } from "@cloudinary/url-gen/actions/rotate"
+import { blur, grayscale, sepia, shadow, colorize, oilPaint, cartoonify, outline, blackwhite, makeTransparent, vectorize, gradientFade, assistColorBlind, backgroundRemoval, dropShadow } from "@cloudinary/url-gen/actions/effect";
+
+import { type CloudinaryProps } from './CloudinaryProps.js';
+
+const cloudName = import.meta.env.CLOUDINARY_CLOUD_NAME;
+
+if(cloudName === undefined || cloudName === null || cloudName === '') {
+	throw new Error('Cloudinary cloud name is not defined');
+}
+
+const cloudinaryMedia = new Cloudinary({
+  cloud: {
+    cloudName: cloudName
+  }
+});
+
+interface Props extends CloudinaryProps {
+	src: string;
+	alt: string;
+	errorImage: string;
+}
+
+const { ...props } = Astro.props;
+
+const imageSource = props.src.startsWith('https://') 
+	? cloudinaryMedia.image(props.src).setDeliveryType('fetch')
+	: cloudinaryMedia.image(props.src);
+	
+if(props.effects !== undefined && props.effects !== null) {
+	for(var i=0; i<props.effects.length; i++){
+		let effectFunction;
+		switch (props.effects[i]) {
+			case 'blur':
+				effectFunction = blur();
+				break;
+			case 'grayscale':
+				effectFunction = grayscale();
+				break;
+			case 'sepia':
+				effectFunction = sepia();
+				break;
+			case 'shadow':
+				effectFunction = shadow();
+				break;
+			case 'colorize':
+				effectFunction = colorize();
+				break;
+			case 'oilPaint':
+				effectFunction = oilPaint();
+				break;
+			case 'cartoonify':
+				effectFunction = cartoonify();
+				break;
+			case 'outline':
+				effectFunction = outline();
+				break;
+			case 'blackwhite':
+				effectFunction = blackwhite();
+				break;
+			case 'makeTransparent':
+				effectFunction = makeTransparent();
+				break;
+			case 'vectorize':
+				effectFunction = vectorize();
+				break;
+			case 'gradientFade':
+				effectFunction = gradientFade();
+				break;
+			case 'assistColorBlind':
+				effectFunction = assistColorBlind();
+				break;
+			case 'backgroundRemoval':
+				effectFunction = backgroundRemoval();
+				break;
+			case 'dropShadow':
+				effectFunction = dropShadow();
+				break;
+			default:
+				effectFunction = blur();
+				break;
+		}
+		imageSource.effect(effectFunction);
+	}	
+}
+
+imageSource.format('auto').quality('auto');
+
+if(props.resize !== undefined && props.resize !== null) {
+	let resizeFunction;
+	switch (props.resize) {
+		case 'crop':
+			resizeFunction = crop();
+			break;
+		case 'fill':
+			resizeFunction = fill();
+			break;
+		case 'scale':
+			resizeFunction = scale();
+			break;
+		case 'minimumPad':
+			resizeFunction = minimumPad();
+			break;
+		case 'fit':
+			resizeFunction = fit();
+			break;
+		case 'limitFit':
+			resizeFunction = limitFit();
+			break;
+		case 'thumbnail':
+			resizeFunction = thumbnail();
+			break;
+		case 'limitFill':
+			resizeFunction = limitFill();
+			break;
+		case 'minimumFit':
+			resizeFunction = minimumFit();
+			break;
+		case 'limitPad':
+			resizeFunction = limitPad();
+			break;
+		case 'fillPad':
+			resizeFunction = fillPad();
+			break;
+		default:
+			resizeFunction = fill();
+			break;
+	}
+
+	if(props.width !== undefined && props.width !== null) {
+		resizeFunction.width(props.width);
+	}
+
+	if(props.height !== undefined && props.height !== null) {
+		resizeFunction.height(props.height);
+	}
+
+	if(resizeFunction instanceof ResizeFillAction && props.gravity !== undefined && props.gravity !== null) {
+		(resizeFunction as ResizeFillAction).gravity(props.gravity === 'face' ? focusOn(FocusOn.faces()) : autoGravity());
+	}
+
+	imageSource.resize(resizeFunction);
+}
+
+if(props.cornerRadius !== undefined && props.cornerRadius !== null) {
+	imageSource.roundCorners(props.cornerRadius === "max" ? max() : byRadius(props.cornerRadius));
+}
+
+if(props.rotate !== undefined && props.rotate !== null) {
+	imageSource.rotate(byAngle(props.rotate));
+}
+
+let errorFunction;
+if(props.errorImage !== "") {
+	errorFunction = `this.onerror=null;this.src='${props.errorImage}';`;
+}
+
+---
+
+<img src={imageSource.toURL()} loading="lazy" alt={props.alt} { ...props } onerror={ errorFunction } />

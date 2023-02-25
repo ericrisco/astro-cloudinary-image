@@ -1,0 +1,27 @@
+---
+import Cloudinary from "../Cloudinary.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<Cloudinary 
+			width="800"
+			height="400"
+			resize="fill"
+			gravity="face"
+			cornerRadius="max"
+			rotate={20}
+			effects={["sepia"]}
+			alt="A sample image"
+			src="cld-sample" 
+			errorImage="NotFound.svg"
+		/>
+	</body>
+</html>
