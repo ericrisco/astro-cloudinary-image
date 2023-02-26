@@ -59,7 +59,7 @@ import { Cloudinary } from 'astro-cloudinary-image';
       gravity="face"
       cornerRadius="max"
       rotate={20}
-      effects={["sepia"]}
+      effects={["backgroundRemoval", "sepia"]}
       alt="A sample image"
       src="cld-sample" 
       errorImage="NotFound.svg"
@@ -118,9 +118,8 @@ Effect | Option	Description
 "vectorize" | converts the image to a vector format.
 "gradientFade" | applies a gradient fade effect to the image.
 "assistColorBlind" | simulates the experience of color blindness.
-"removeBackground" | removes the background of the image.
 "backgroundRemoval" | removes the background of the image.
 "dropShadow" | adds a drop shadow to the image.
 
-__**In order to use `removeBackground` you must activate `Cloudinary AI Background Removal` on Addons of your Cloudinary account**__
+__**In order to use `backgroundRemoval` you must activate `Cloudinary AI Background Removal` on Addons of your Cloudinary account. The `backgroundRemoval` must be allways the first effect**__
 
