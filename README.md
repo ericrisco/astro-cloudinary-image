@@ -67,6 +67,13 @@ import { Cloudinary } from 'astro-cloudinary-image';
   </body>
 </html>
 ```
+## Mandatory Props
+
+1. `src: string` - The URL of the image to be displayed. This `src` can be a full image url or the Cloudinary identifier on your media library
+
+2. `alt: string`	- The alt text for the image.
+
+3. `errorImage: string` - A URL for a fallback image to display if the src image fails to load.
 
 ## Optional Props
 
