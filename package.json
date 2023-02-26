@@ -1,6 +1,6 @@
 {
 	"name": "astro-cloudinary-image",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Adds a Cloudinary image component to Astro",
 	"homepage": "https://github.com/ericrisco/astro-cloudinary-image#readme",
 	"bugs": {

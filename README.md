@@ -92,9 +92,9 @@ import { Cloudinary } from 'astro-cloudinary-image';
 
 ## 🗺️ Optional Props
 
-1. `width?: string;` - Sets the width of the image. It accepts a string value that can be a number followed by a unit (e.g. "100px", "50%").
+1. `width?: string;` - Sets the width of the image. It accepts a string value that can be a number in pixels (e.g. "100", "50").
 
-2. `height?: string;` - Sets the height of the image. It accepts a string value that can be a number followed by a unit (e.g. "100px", "50%").
+2. `height?: string;` - Sets the height of the image. It accepts a string value that can be a number in pixels (e.g. "100", "50").
 
 3. `resize?:` - Specifies the resizing behavior of the image. It can have one of the following values:
 
