@@ -1,4 +1,4 @@
-![astrocloudinary](https://user-images.githubusercontent.com/20164590/221384798-117e77e8-7656-4234-aca5-86f6e78039b9.png)
+![astrocloudinary](https://user-images.githubusercontent.com/20164590/221385959-78078d28-79c3-40ec-b2c1-c4dfa01c03ad.png)
 
 # 🚀 Astro Cloudinary Image
 
@@ -123,3 +123,4 @@ Effect | Option	Description
 "dropShadow" | adds a drop shadow to the image.
 
 __**In order to use `removeBackground` you must activate `Cloudinary AI Background Removal` on Addons of your Cloudinary account**__
+
