@@ -10,7 +10,22 @@ Pull requests and/or feature requests are very welcome!
 
 This project aims to participate in [@midudev](https://www.github.com/midudev) hackathon: [Cloudinary CloudCreate](https://cloudinary.com/blog/cloudinary-cloudcreate-tech-products-hackathon?utm_source=twitter&utm_medium=social-company&utm_campaign=1307&utm_term=194&utm_content=blog_cloudcreate_hackathon), in collaboration with [Cloudinary](https://cloudinary.com/).
 
-## Installation
+## 💻 Features
+
+Below is a short list of features that **Astro Cloudinary Image** offers.
+
+- ✅ **Crops the image to fit the specified dimensions.**
+- ✅ **Scales the image to fill the specified dimensions.**
+- ✅ **Scales the image to the specified dimensions.**
+- ✅ **Scales the image to fit within the specified dimensions.**
+- ✅ **Generates a thumbnail of the image.**
+- ✅ **Centers the image around detected faces.**
+- ✅ **Automatically detects the subject of the image and centers it.**
+- ✅ **Add corner radius from 1px to max (round image)**
+- ✅ **Rotate the image**
+- ✅ **Applies various effects to the image.**
+
+## 🛠️ Installation
 
 To install Astro SEO, run the following command in your terminal:
 
@@ -24,7 +39,7 @@ or if you use yarn:
 yarn add astro-cloudinary-image
 ```
 
-## How To Use
+## 💻 How To Use
 
 1. First of all you have to create a 
 
@@ -67,7 +82,7 @@ import { Cloudinary } from 'astro-cloudinary-image';
   </body>
 </html>
 ```
-## Mandatory Props
+## 🗺️ Mandatory Props
 
 1. `src: string` - The URL of the image to be displayed. This `src` can be a full image url or the Cloudinary identifier on your media library
 
@@ -75,7 +90,7 @@ import { Cloudinary } from 'astro-cloudinary-image';
 
 3. `errorImage: string` - A URL for a fallback image to display if the src image fails to load.
 
-## Optional Props
+## 🗺️ Optional Props
 
 1. `width?: string;` - Sets the width of the image. It accepts a string value that can be a number followed by a unit (e.g. "100px", "50%").
 
@@ -129,4 +144,14 @@ Effect | Option	Description
 "dropShadow" | adds a drop shadow to the image.
 
 __**In order to use `backgroundRemoval` you must activate `Cloudinary AI Background Removal` on Addons of your Cloudinary account. The `backgroundRemoval` must be allways the first effect**__
+
+# ✅ Live Example
+
+If you want to view live examples of the component, clone this repo and `npm run dev` it.
+
+## 
+
+If you want to report any issues or have found a missing feature, please report it on [GitHub](https://github.com/ericrisco/astro-cloudinary-image/issues)!
+
+Good luck out there, Astronaut. 🚀
 
