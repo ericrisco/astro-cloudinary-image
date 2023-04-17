@@ -39,6 +39,12 @@ or if you use yarn:
 yarn add astro-cloudinary-image
 ```
 
+or if you use pnpm:
+
+```bash
+pnpm add astro-cloudinary-image
+```
+
 ## 💻 How To Use
 
 1. First of all you have to create a 
