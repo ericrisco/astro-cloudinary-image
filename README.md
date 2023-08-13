@@ -27,7 +27,7 @@ Below is a short list of features that **Astro Cloudinary Image** offers.
 
 ## 🛠️ Installation
 
-To install Astro SEO, run the following command in your terminal:
+To install Astro Cloudinary Image, run the following command in your terminal:
 
 ```bash
 npm install astro-cloudinary-image
@@ -47,9 +47,7 @@ pnpm add astro-cloudinary-image
 
 ## 💻 How To Use
 
-1. First of all you have to create a 
-
-In any of your Astro projects, you need to create a `.env` file and add your cloud name on Cloudinary, like: 
+1. In any of your Astro projects, you need to create a `.env` file and add your cloud name on Cloudinary, like: 
 
 ```bash
 CLOUDINARY_CLOUD_NAME=XXXXXXX
